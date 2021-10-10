@@ -14,6 +14,8 @@ class BlogPostTemplate extends React.Component {
     const previous = get(this.props, 'data.previous')
     const next = get(this.props, 'data.next')
 
+    console.log("blog post", post);
+
     return (
       <Layout location={this.props.location}>
         <Seo

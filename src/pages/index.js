@@ -4,21 +4,18 @@ import get from 'lodash/get'
 
 import Layout from '../components/layout'
 import Hero from '../components/hero'
-import ArticlePreview from '../components/article-preview'
+import HabitPreview from '../components/habit-preview'
 
 class RootIndex extends React.Component {
   render() {
-    const posts = get(this, 'props.data.allContentfulBlogPost.nodes')
-    const [author] = get(this, 'props.data.allContentfulPerson.nodes')
+    // const posts = get(this, 'props.data.allContentfulBlogPost.nodes')
+    // const [author] = get(this, 'props.data.allContentfulPerson.nodes')
+    const habits = get(this, 'props.data.allContentfulHabit.nodes')
 
     return (
       <Layout location={this.props.location}>
-        <Hero
-          image={author.heroImage.gatsbyImageData}
-          title={author.name}
-          content={author.shortBio.shortBio}
-        />
-        <ArticlePreview posts={posts} />
+        <Hero title="Habits" content="Habits category description" />
+        <HabitPreview habits={habits} />
       </Layout>
     )
   }
@@ -35,6 +32,12 @@ export const pageQuery = graphql`
         publishDate(formatString: "MMMM Do, YYYY")
         tags
         heroImage {
+          title
+          file {
+            contentType
+            fileName
+            url
+          }
           gatsbyImageData(
             layout: FULL_WIDTH
             placeholder: BLURRED
@@ -64,6 +67,31 @@ export const pageQuery = graphql`
             placeholder: BLURRED
             width: 1180
           )
+        }
+      }
+    }
+    allContentfulHabit(sort: { fields: [publishDate], order: DESC }) {
+      nodes {
+        title
+        slug
+        publishDate(formatString: "MMMM Do, YYYY")
+        tags
+        icon {
+          title
+          file {
+            contentType
+            fileName
+            url
+          }
+          gatsbyImageData(
+            layout: FULL_WIDTH
+            placeholder: BLURRED
+          )
+        }
+        description {
+          childMarkdownRemark {
+            html
+          }
         }
       }
     }

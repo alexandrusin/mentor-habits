@@ -1,0 +1,43 @@
+.habit-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-gap: var(--space-3xl);
+
+  .title {
+    display: inline-block;
+    font-size: var(--text-lg);
+    margin: 0 0 0 var(--space-sm);
+    border-bottom: 1.5px solid transparent;
+  }
+
+  .description {
+    margin: 10px 0;
+  }
+  
+  .link {
+    display: flex;
+    text-decoration: none;
+  }
+  
+  .link:hover .title {
+    border-bottom-color: var(--primary);
+  }
+  
+  .meta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  
+  // @media (min-width: 1024px) {
+  //   .habit {
+  //     display: flex;
+  //   }
+  // }
+
+
+}

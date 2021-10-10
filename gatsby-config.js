@@ -46,9 +46,31 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sharp",
     "gatsby-plugin-image",
+    "gatsby-plugin-sass",
     {
       resolve: "gatsby-source-contentful",
       options: contentfulConfig,
+    },
+    {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        name: "Mentor Habits",
+        short_name: "MH",
+        start_url: "/",
+        background_color: "#f7f0eb",
+        theme_color: "#a2466c",
+        display: "standalone",
+        icon: "static/touch-icon.png",
+        cache_busting_mode: "none",
+      },
+    },
+    {
+      resolve: "gatsby-plugin-offline",
+      options: {
+         workboxConfig: {
+            globPatterns: ["**/icon-path*"]
+         }
+      }
     },
   ],
 };
