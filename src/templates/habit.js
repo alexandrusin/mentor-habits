@@ -33,7 +33,7 @@ class HabitTemplate extends React.Component {
             />
             <h1 className="title">{habit.title}</h1>
           </hgroup>
-          <div class="description"
+          <div className="description"
             dangerouslySetInnerHTML={{
               __html: habit.description.childMarkdownRemark.html,
             }}

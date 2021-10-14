@@ -25,7 +25,7 @@ const HabitPreview = ({ habits }) => {
                 <h2 className="title">{habit.title}</h2>
               </Link>
 
-              <div class="description">{habit.description.childMarkdownRemark.excerpt}</div>
+              <div className="description">{habit.description.childMarkdownRemark.excerpt}</div>
 
               <div className="meta">
                 <Tags tags={habit.tags} />

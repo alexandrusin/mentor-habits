@@ -36,8 +36,8 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: "Gatsby Contentful Starter",
-    description: "Official Contentful Gatsby Starter",
+    title: "Mentor Habits",
+    description: "Habits and routines of successful people",
   },
   pathPrefix: "/gatsby-contentful-starter",
   plugins: [
@@ -60,7 +60,8 @@ module.exports = {
         background_color: "#f7f0eb",
         theme_color: "#a2466c",
         display: "standalone",
-        icon: "static/touch-icon.png",
+        icon: "static/icon.svg",
+        //include_favicon: false,  This will exclude favicon link tag
         cache_busting_mode: "none",
       },
     },

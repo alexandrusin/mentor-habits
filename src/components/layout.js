@@ -10,8 +10,6 @@ class Template extends React.Component {
   render() {
     const { children } = this.props
 
-    console.log("HELLO 2", this.props);
-
     return (
       <>
         <Seo />

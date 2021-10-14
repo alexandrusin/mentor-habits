@@ -5,7 +5,7 @@ const Icon = ({ image, color, size }) => (
   <>
     {image && (
       <div
-        className={"icon " + (color ? color : "black") + " " + (size ? size : "medium")}
+        className={"icon " + (color ? color : "default") + " " + (size ? size : "medium")}
         style={{WebkitMaskImage: `url(https:${ image })`}}>
       </div>
     )}

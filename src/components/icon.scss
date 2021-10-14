@@ -22,6 +22,17 @@
     background: #000;
   }
 
+  &.default {
+    background: var(--black);
+  }
+
+  // @media (prefers-color-scheme: dark) {
+  //   &.default {
+  //     background: var(--white);
+  //   }
+  // }
+  
+
   // &.green {
   //   background: yellowgreen;
   // }
