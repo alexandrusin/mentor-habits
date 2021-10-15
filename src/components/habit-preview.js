@@ -17,20 +17,29 @@ const HabitPreview = ({ habits }) => {
           return (
             <li className="habit-preview" key={habit.slug}>
               <Link to={`/habits/${habit.slug}`} className="link">
-                <Icon
-                  image={habit.icon.file.url}
-                  title={habit.icon.title}
-                  size="small"
-                />
-                <h2 className="title">{habit.title}</h2>
+                <div className="icon_wrapper">
+                  <Icon
+                    image={habit.icon.file.url}
+                    title={habit.icon.title}
+                    size="large"
+                  />
+                </div>
+                <div className="info">
+                  <h2 className="title">{habit.title}</h2>
+                  {/* <div className="description">
+                    {habit.description.childMarkdownRemark.excerpt}
+                  </div> */}
+                  <div
+                    className="description"
+                    dangerouslySetInnerHTML={{
+                      __html: habit.description.childMarkdownRemark.html,
+                    }}
+                  />
+                  <div className="meta">
+                    <Tags tags={habit.tags} />
+                  </div>
+                </div>
               </Link>
-
-              <div className="description">{habit.description.childMarkdownRemark.excerpt}</div>
-
-              <div className="meta">
-                <Tags tags={habit.tags} />
-                {/* <small className="meta">{habit.publishDate}</small> */}
-              </div>
             </li>
           )
         })}

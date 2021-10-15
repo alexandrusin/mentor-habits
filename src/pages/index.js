@@ -5,17 +5,24 @@ import get from 'lodash/get'
 import Layout from '../components/layout'
 import Hero from '../components/hero'
 import HabitPreview from '../components/habit-preview'
+import MentorPreview from '../components/mentor-preview'
 
 class RootIndex extends React.Component {
   render() {
     // const posts = get(this, 'props.data.allContentfulBlogPost.nodes')
     // const [author] = get(this, 'props.data.allContentfulPerson.nodes')
     const habits = get(this, 'props.data.allContentfulHabit.nodes')
+    const mentors = get(this, 'props.data.allContentfulMentor.nodes')
+
+    console.log('mentors - allContentfulMentor', mentors)
 
     return (
       <Layout location={this.props.location}>
-        <Hero title="Habits" content="Habits category description" />
+        <Hero title="Habits" content="Habits you can adopt" />
         <HabitPreview habits={habits} />
+
+        <Hero title="Mentors" content="Mentors you can follow" />
+        <MentorPreview mentors={mentors} />
       </Layout>
     )
   }
@@ -83,9 +90,31 @@ export const pageQuery = graphql`
             fileName
             url
           }
+          gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+        }
+        description {
+          childMarkdownRemark {
+            html
+          }
+        }
+      }
+    }
+    allContentfulMentor(sort: { fields: [name], order: DESC }) {
+      nodes {
+        name
+        slug
+        avatar {
+          title
+          file {
+            contentType
+            fileName
+            url
+          }
           gatsbyImageData(
             layout: FULL_WIDTH
             placeholder: BLURRED
+            width: 100
+            height: 100
           )
         }
         description {

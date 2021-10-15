@@ -1,10 +1,18 @@
-.habit-list {
+.mentor-list {
   margin: 0;
   padding: 0;
   list-style: none;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   grid-gap: var(--space-3xl);
+
+  .avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: var(--space-md);
+  }
 
   .info {
     display: flex;
@@ -19,18 +27,8 @@
     border-bottom: 1.5px solid transparent;
   }
 
-  .icon_wrapper {
-    width: 80px;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #eee;
-    border-radius: 50%;
-  }
-
   .description {
-    margin: 5px 0;
+    // margin: 10px 0;
     p {
       margin: 0;
     }
