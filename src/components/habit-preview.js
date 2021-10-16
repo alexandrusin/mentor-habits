@@ -4,6 +4,7 @@ import { Link } from 'gatsby'
 import Container from './container'
 import Icon from './icon'
 import Tags from './tags'
+import PreviewList from './preview-list'
 import './habit-preview.scss'
 
 const HabitPreview = ({ habits }) => {
@@ -11,20 +12,20 @@ const HabitPreview = ({ habits }) => {
   if (!Array.isArray(habits)) return null
 
   return (
-    <Container>
-      <ul className="habit-list">
+    <PreviewList>
+      <ul className="preview-list habit-list">
         {habits.map((habit) => {
           return (
-            <li className="habit-preview" key={habit.slug}>
+            <li className="entry-preview habit-preview" key={habit.slug}>
               <Link to={`/habits/${habit.slug}`} className="link">
-                <div className="icon_wrapper">
+                <div className="image_wrapper icon_wrapper">
                   <Icon
                     image={habit.icon.file.url}
                     title={habit.icon.title}
                     size="large"
                   />
                 </div>
-                <div className="info">
+                <div className="content_wrapper info">
                   <h2 className="title">{habit.title}</h2>
                   {/* <div className="description">
                     {habit.description.childMarkdownRemark.excerpt}
@@ -44,7 +45,7 @@ const HabitPreview = ({ habits }) => {
           )
         })}
       </ul>
-    </Container>
+    </PreviewList>
   )
 }
 

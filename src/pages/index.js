@@ -18,10 +18,10 @@ class RootIndex extends React.Component {
 
     return (
       <Layout location={this.props.location}>
-        <Hero title="Habits" content="Habits you can adopt" />
+        <Hero title="Habits" content="you can adopt" />
         <HabitPreview habits={habits} />
 
-        <Hero title="Mentors" content="Mentors you can follow" />
+        <Hero title="Mentors" content="you can follow" />
         <MentorPreview mentors={mentors} />
       </Layout>
     )

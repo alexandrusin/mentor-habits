@@ -4,6 +4,7 @@ import { Link } from 'gatsby'
 import Container from './container'
 import Avatar from './avatar'
 import Tags from './tags'
+import PreviewList from './preview-list'
 import './mentor-preview.scss'
 
 const MentorPreview = ({ mentors }) => {
@@ -11,19 +12,19 @@ const MentorPreview = ({ mentors }) => {
   if (!Array.isArray(mentors)) return null
 
   return (
-    <Container>
-      <ul className="mentor-list">
+    <PreviewList>
+      <ul className="preview-list mentor-list">
         {mentors.map((mentor) => {
           return (
-            <li className="mentor-preview" key={mentor.slug}>
+            <li className="entry-preview mentor-preview" key={mentor.slug}>
               <Link to={`/mentors/${mentor.slug}`} className="link">
-                <div className="avatar">
+                <div className="image_wrapper avatar_wrapper">
                   <Avatar
                     image={mentor.avatar.gatsbyImageData}
                     title={mentor.avatar.title}
                   />
                 </div>
-                <div className="info">
+                <div className="content_wrapper info">
                   <h2 className="title">{mentor.name}</h2>
                   <div
                     className="description"
@@ -37,7 +38,7 @@ const MentorPreview = ({ mentors }) => {
           )
         })}
       </ul>
-    </Container>
+    </PreviewList>
   )
 }
 

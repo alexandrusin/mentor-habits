@@ -33,6 +33,17 @@
     font-weight: var(--extrabold);
     line-height: var(--solid);
     margin: 0;
+
+    // border-bottom: 1px solid #eee;
+    // padding-bottom: 10px;
+
+    // text-transform: uppercase;
+    span {
+      font-size: var(--text-title);
+      font-weight: 200;
+      letter-spacing: -0.06em;
+      color: #ccc;
+    }
   }
 
   .content {
