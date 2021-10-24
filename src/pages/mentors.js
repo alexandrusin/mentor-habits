@@ -4,40 +4,42 @@ import get from 'lodash/get'
 
 import Seo from '../components/seo'
 import Layout from '../components/layout'
-import HabitPreview from '../components/habit-preview'
+import MentorPreview from '../components/mentor-preview'
 
-class HabitsIndex extends React.Component {
+class MentorIndex extends React.Component {
   render() {
-    const habits = get(this, 'props.data.allContentfulHabit.nodes')
+    const mentors = get(this, 'props.data.allContentfulMentor.nodes')
 
     return (
       <Layout location={this.props.location}>
-        <Seo title="Habits" />
-        <HabitPreview habits={habits} />
+        <Seo title="Mentors" />
+        <MentorPreview mentors={mentors} />
       </Layout>
     )
   }
 }
 
-export default HabitsIndex
+export default MentorIndex
 
 export const pageQuery = graphql`
-  query HabitIndexQuery {
-    allContentfulHabit(sort: { fields: [name], order: DESC }) {
+  query MentorIndexQuery {
+    allContentfulMentor(sort: { fields: [name], order: DESC }) {
       nodes {
         name
         slug
-        tags
-        difficulty
-        duration
-        icon {
+        avatar {
           title
           file {
             contentType
             fileName
             url
           }
-          gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+          gatsbyImageData(
+            layout: FULL_WIDTH
+            placeholder: BLURRED
+            width: 100
+            height: 100
+          )
         }
         description {
           childMarkdownRemark {

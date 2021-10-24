@@ -8,11 +8,6 @@
     'Courier New', monospace;
   --font-serif: 'Times New Roman', Times, serif;
 
-  /* palette */
-  --white: #fff;
-  --black: #000;
-  --black-fade-5: rgba(0, 0, 0, 0.05);
-
   /* radii */
   --radius-sm: 4px;
 
@@ -49,6 +44,11 @@
   --text-4xl: 48px;
   --text-5xl: 64px;
   --text-6xl: 76px;
+
+  /* palette */
+  --white: #fff;
+  --black: #000;
+  --black-fade-5: rgba(0, 0, 0, 0.05);
 
   /* tokens */
   /* colors */

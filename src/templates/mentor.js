@@ -7,63 +7,63 @@ import Layout from '../components/layout'
 import Icon from '../components/icon'
 import Tags from '../components/tags'
 
-import './habit.scss'
+import './mentor.scss'
 
-class HabitTemplate extends React.Component {
+class MentorTemplate extends React.Component {
   render() {
-    const habit = get(this.props, 'data.contentfulHabit')
+    const mentor = get(this.props, 'data.contentfulMentor')
     const previous = get(this.props, 'data.previous')
     const next = get(this.props, 'data.next')
 
-    console.log('habit', habit)
+    console.log('mentor', mentor)
     console.log('HELLO', this.props.location)
 
     return (
-      <Layout page="habit" location={this.props.location}>
+      <Layout page="mentor" location={this.props.location}>
         <Seo
-          title={habit.name}
-          description={habit.description.childMarkdownRemark.excerpt}
+          title={mentor.name}
+          description={mentor.description.childMarkdownRemark.excerpt}
         />
         <header className="header">
           <hgroup>
-            <Icon
-              image={habit.icon.file.url}
-              title={habit.icon.title}
+            {/* <Icon
+              image={mentor.icon.file.url}
+              title={mentor.icon.title}
               size="large"
-            />
-            <h1 className="title">{habit.name}</h1>
+            /> */}
+            <h1 className="title">{mentor.name}</h1>
           </hgroup>
           <div
             className="description"
             dangerouslySetInnerHTML={{
-              __html: habit.description.childMarkdownRemark.html,
+              __html: mentor.description.childMarkdownRemark.html,
             }}
           />
           <div className="info">
-            <time dateTime={habit.rawDate}>{habit.publishDate}</time> –{' '}
-            {habit.body.childMarkdownRemark.timeToRead} minute read
+            <time dateTime={mentor.rawDate}>{mentor.publishDate}</time> –{' '}
+            {mentor.body.childMarkdownRemark.timeToRead} minute read
           </div>
         </header>
         <div
           className="body"
           dangerouslySetInnerHTML={{
-            __html: habit.body.childMarkdownRemark.html,
+            __html: mentor.body.childMarkdownRemark.html,
           }}
         />
-        <Tags tags={habit.tags} />
+
         {(previous || next) && (
           <nav>
             <ul className="articleNavigation">
               {previous && (
                 <li>
-                  <Link to={`/habits/${previous.slug}`} rel="prev">
+                  <Link to={`/mentors/${previous.slug}`} rel="prev">
                     ← {previous.name}
                   </Link>
                 </li>
               )}
               {next && (
                 <li>
-                  <Link to={`/habits/${next.slug}`} rel="next">
+                  <Link to={`/mentors/${next.slug}`} rel="next">
                     {next.name} →
                   </Link>
                 </li>
@@ -76,25 +76,30 @@ class HabitTemplate extends React.Component {
   }
 }
 
-export default HabitTemplate
+export default MentorTemplate
 
 export const pageQuery = graphql`
-  query HabitBySlug(
+  query MentorBySlug(
     $slug: String!
     $previousPostSlug: String
     $nextPostSlug: String
   ) {
-    contentfulHabit(slug: { eq: $slug }) {
+    contentfulMentor(slug: { eq: $slug }) {
       name
       slug
-      icon {
+      avatar {
         title
         file {
           contentType
           fileName
           url
         }
-        gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+        gatsbyImageData(
+          layout: FULL_WIDTH
+          placeholder: BLURRED
+          width: 100
+          height: 100
+        )
       }
       body {
         childMarkdownRemark {
@@ -102,18 +107,17 @@ export const pageQuery = graphql`
           timeToRead
         }
       }
-      tags
       description {
         childMarkdownRemark {
           html
         }
       }
     }
-    previous: contentfulHabit(slug: { eq: $previousPostSlug }) {
+    previous: contentfulMentor(slug: { eq: $previousPostSlug }) {
       slug
       name
     }
-    next: contentfulHabit(slug: { eq: $nextPostSlug }) {
+    next: contentfulMentor(slug: { eq: $nextPostSlug }) {
       slug
       name
     }

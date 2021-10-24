@@ -7,5 +7,12 @@
     justify-content: center;
     background: #eee;
     border-radius: 50%;
+
+    &.difficulty-1 {
+      background: greenyellow;
+    }
+    &.difficulty-2 {
+      background: green;
+    }
   }
 }

@@ -3,6 +3,7 @@ import { Link } from 'gatsby'
 
 import Container from './container'
 import Avatar from './avatar'
+import Hero from './hero'
 import Tags from './tags'
 import PreviewList from './preview-list'
 import './mentor-preview.scss'
@@ -13,6 +14,7 @@ const MentorPreview = ({ mentors }) => {
 
   return (
     <PreviewList>
+      <Hero title="Mentors" content="you can follow" />
       <ul className="preview-list mentor-list">
         {mentors.map((mentor) => {
           return (
@@ -25,7 +27,7 @@ const MentorPreview = ({ mentors }) => {
                   />
                 </div>
                 <div className="content_wrapper info">
-                  <h2 className="title">{mentor.name}</h2>
+                  <h2 className="name">{mentor.name}</h2>
                   <div
                     className="description"
                     dangerouslySetInnerHTML={{
