@@ -35,18 +35,18 @@ class HabitTemplate extends React.Component {
             }}
           />
         </header>
-        <div
+        {/* <div
           className="steps"
           dangerouslySetInnerHTML={{
             __html: habit.steps.childMarkdownRemark.html,
           }}
-        />
-        <div
+        /> */}
+        {/* <div
           className="benefits"
           dangerouslySetInnerHTML={{
             __html: habit.benefits.childMarkdownRemark.html,
           }}
-        />
+        /> */}
         <div
           className="body"
           dangerouslySetInnerHTML={{
