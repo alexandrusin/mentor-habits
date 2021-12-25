@@ -17,7 +17,12 @@ class RootIndex extends React.Component {
     console.log('mentors - allContentfulMentor', mentors)
 
     return (
-      <Layout location={this.props.location}>
+      <Layout
+        title="Habits, Hacks and Ideas"
+        description="Make small improvements on a daily basis"
+        location={this.props.location}
+        page="homepage"
+      >
         <HabitPreview habits={habits} />
         <MentorPreview mentors={mentors} />
       </Layout>
@@ -87,6 +92,9 @@ export const pageQuery = graphql`
             contentType
             fileName
             url
+          }
+          svg {
+            content
           }
           gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
         }

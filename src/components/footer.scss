@@ -1,12 +1,25 @@
 footer {
   .container {
+    display: flex;
+    flex-direction: row;
+
     border-top: 1px solid var(--border);
     font-size: var(--text-sm);
     margin-top: var(--space-2xl);
     padding: var(--space-2xl) var(--space-3xl);
+    color: var(--black-fade-80);
+  }
+  .left,
+  .right {
+    flex: 1;
+  }
+
+  .left {
+    text-align: left;
+  }
+
+  .right {
     text-align: right;
-    color: #ccc;
-    // text-transform: uppercase;
   }
 
   .container a {

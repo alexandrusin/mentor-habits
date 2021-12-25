@@ -5,15 +5,21 @@ import get from 'lodash/get'
 import Seo from '../components/seo'
 import Layout from '../components/layout'
 import HabitPreview from '../components/habit-preview'
+// import Legend from '../components/legend'
 
 class HabitsIndex extends React.Component {
   render() {
     const habits = get(this, 'props.data.allContentfulHabit.nodes')
 
     return (
-      <Layout location={this.props.location}>
+      <Layout
+        page="habits"
+        title="Habits you can adopt"
+        location={this.props.location}
+      >
         <Seo title="Habits" />
         <HabitPreview habits={habits} />
+        {/* <Legend /> */}
       </Layout>
     )
   }
@@ -36,6 +42,9 @@ export const pageQuery = graphql`
             contentType
             fileName
             url
+          }
+          svg {
+            content
           }
           gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
         }

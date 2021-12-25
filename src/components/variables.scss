@@ -48,6 +48,8 @@
   /* palette */
   --white: #fff;
   --black: #000;
+  --black-fade-80: rgba(0, 0, 0, 0.8);
+  --black-fade-8: rgba(0, 0, 0, 0.08);
   --black-fade-5: rgba(0, 0, 0, 0.05);
 
   /* tokens */
@@ -56,6 +58,12 @@
   --background: var(--white);
   --border: var(--black-fade-5);
 
+  --difficulty-1: #acdfe8;
+  --difficulty-2: #c9e08e;
+  --difficulty-3: #a5d177;
+  --difficulty-4: #fcb135;
+  --difficulty-5: #f2673d;
+
   /* text */
   /* color */
   --text-color: var(--black);
@@ -63,6 +71,7 @@
   --text-lead: var(--text-lg);
   --text-prose: var(--text-md);
   --text-title: var(--text-3xl);
+  --text-subtitle: var(--text-2xl);
   /* tracking */
   --text-prose-tracking: -0.011em;
 

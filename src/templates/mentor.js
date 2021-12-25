@@ -4,8 +4,6 @@ import get from 'lodash/get'
 
 import Seo from '../components/seo'
 import Layout from '../components/layout'
-import Icon from '../components/icon'
-import Tags from '../components/tags'
 
 import './mentor.scss'
 
@@ -19,7 +17,7 @@ class MentorTemplate extends React.Component {
     console.log('HELLO', this.props.location)
 
     return (
-      <Layout page="mentor" location={this.props.location}>
+      <Layout title={mentor.name} page="mentor" location={this.props.location}>
         <Seo
           title={mentor.name}
           description={mentor.description.childMarkdownRemark.excerpt}
@@ -39,10 +37,6 @@ class MentorTemplate extends React.Component {
               __html: mentor.description.childMarkdownRemark.html,
             }}
           />
-          <div className="info">
-            <time dateTime={mentor.rawDate}>{mentor.publishDate}</time> –{' '}
-            {mentor.body.childMarkdownRemark.timeToRead} minute read
-          </div>
         </header>
         <div
           className="body"
@@ -104,7 +98,6 @@ export const pageQuery = graphql`
       body {
         childMarkdownRemark {
           html
-          timeToRead
         }
       }
       description {

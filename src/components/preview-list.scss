@@ -3,7 +3,7 @@
   padding: 0;
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   grid-gap: var(--space-3xl);
 
   .entry-preview {
@@ -45,5 +45,9 @@
     p {
       margin: 0;
     }
+  }
+
+  .tags {
+    margin-top: var(--space-sm);
   }
 }

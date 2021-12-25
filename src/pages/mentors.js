@@ -11,7 +11,11 @@ class MentorIndex extends React.Component {
     const mentors = get(this, 'props.data.allContentfulMentor.nodes')
 
     return (
-      <Layout location={this.props.location}>
+      <Layout
+        page="mentors"
+        title="Mentors you can follow"
+        location={this.props.location}
+      >
         <Seo title="Mentors" />
         <MentorPreview mentors={mentors} />
       </Layout>

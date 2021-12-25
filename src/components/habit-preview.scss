@@ -5,14 +5,22 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #eee;
     border-radius: 50%;
-
-    &.difficulty-1 {
-      background: greenyellow;
-    }
-    &.difficulty-2 {
-      background: green;
-    }
   }
+}
+
+.difficulty-1 {
+  background: var(--difficulty-1);
+}
+.difficulty-2 {
+  background: var(--difficulty-2);
+}
+.difficulty-3 {
+  background: var(--difficulty-3);
+}
+.difficulty-4 {
+  background: var(--difficulty-4);
+}
+.difficulty-5 {
+  background: var(--difficulty-5);
 }

@@ -4,7 +4,6 @@ import get from 'lodash/get'
 
 import Seo from '../components/seo'
 import Layout from '../components/layout'
-import Icon from '../components/icon'
 import Tags from '../components/tags'
 
 import './habit.scss'
@@ -19,31 +18,35 @@ class HabitTemplate extends React.Component {
     console.log('HELLO', this.props.location)
 
     return (
-      <Layout page="habit" location={this.props.location}>
+      <Layout title={habit.name} page="habit" location={this.props.location}>
         <Seo
           title={habit.name}
           description={habit.description.childMarkdownRemark.excerpt}
         />
         <header className="header">
-          <hgroup>
-            <Icon
-              image={habit.icon.file.url}
-              title={habit.icon.title}
-              size="large"
-            />
+          {/* <hgroup>
+            <Icon svg={habit.icon.svg} title={habit.icon.title} size="large" />
             <h1 className="title">{habit.name}</h1>
-          </hgroup>
+          </hgroup> */}
           <div
             className="description"
             dangerouslySetInnerHTML={{
               __html: habit.description.childMarkdownRemark.html,
             }}
           />
-          <div className="info">
-            <time dateTime={habit.rawDate}>{habit.publishDate}</time> –{' '}
-            {habit.body.childMarkdownRemark.timeToRead} minute read
-          </div>
         </header>
+        <div
+          className="steps"
+          dangerouslySetInnerHTML={{
+            __html: habit.steps.childMarkdownRemark.html,
+          }}
+        />
+        <div
+          className="benefits"
+          dangerouslySetInnerHTML={{
+            __html: habit.benefits.childMarkdownRemark.html,
+          }}
+        />
         <div
           className="body"
           dangerouslySetInnerHTML={{
@@ -94,16 +97,28 @@ export const pageQuery = graphql`
           fileName
           url
         }
+        svg {
+          content
+        }
         gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
       }
       body {
         childMarkdownRemark {
           html
-          timeToRead
         }
       }
       tags
       description {
+        childMarkdownRemark {
+          html
+        }
+      }
+      steps {
+        childMarkdownRemark {
+          html
+        }
+      }
+      benefits {
         childMarkdownRemark {
           html
         }
