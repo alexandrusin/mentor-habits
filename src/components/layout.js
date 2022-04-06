@@ -1,28 +1,27 @@
-import React from 'react'
+import React from "react"
 
-import './variables.scss'
-import './global.css'
-import './layout.scss'
-import Seo from './seo'
-import Navigation from './navigation'
-import Hero from './hero'
-import Footer from './footer'
+import "../styles/reset.scss"
+import "../styles/variables.scss"
+import "../styles/global.scss"
+import "./Layout.scss"
 
-class Template extends React.Component {
-  render() {
-    const { children, title, description, page } = this.props
-    console.log('TEST', this.props)
+import Seo from "./Seo"
+import Navbar from "./Navbar"
+import Header from "./Header"
+import Footer from "./Footer"
 
-    return (
-      <>
-        <Seo />
-        <Navigation />
-        <Hero title={title} description={description} />
-        <main className={'page ' + (page ? page : 'default')}>{children}</main>
-        <Footer />
-      </>
-    )
-  }
+const Layout = ({ children, title, description, page }) => {
+  return (
+    <>
+      <Seo />
+      <Navbar />
+      <Header title={title} description={description} />
+      <div className={"page-wrapper " + (page ? page : "default")}>
+        {children}
+      </div>
+      <Footer />
+    </>
+  )
 }
 
-export default Template
+export default Layout

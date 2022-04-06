@@ -1,10 +1,5 @@
 .legend-wrapper {
   padding: var(--size-gutter) 0;
-  h6 {
-    margin: unset;
-    // font-weight: 400;
-    color: var(--black-fade-80);
-  }
 }
 
 .difficulty-wrapper {
@@ -23,7 +18,7 @@
   align-items: center;
   justify-content: center;
   font-size: var(--text-xs);
-  color: var(--white);
+  color: var(--color-white);
   font-weight: 600;
 }
 

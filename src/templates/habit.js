@@ -1,59 +1,52 @@
-import React from 'react'
-import { Link, graphql } from 'gatsby'
-import get from 'lodash/get'
+import React from "react"
+import { Link, graphql } from "gatsby"
+import get from "lodash/get"
 
-import Seo from '../components/seo'
-import Layout from '../components/layout'
-import Tags from '../components/tags'
+import Seo from "../components/Seo"
+import Layout from "../components/Layout"
 
-import './habit.scss'
+import "./habit.scss"
 
 class HabitTemplate extends React.Component {
   render() {
-    const habit = get(this.props, 'data.contentfulHabit')
-    const previous = get(this.props, 'data.previous')
-    const next = get(this.props, 'data.next')
-
-    console.log('habit', habit)
-    console.log('HELLO', this.props.location)
+    const habit = get(this.props, "data.contentfulHabit")
+    const previous = get(this.props, "data.previous")
+    const next = get(this.props, "data.next")
 
     return (
-      <Layout title={habit.name} page="habit" location={this.props.location}>
+      <Layout title={habit.name} page="habit">
         <Seo
           title={habit.name}
           description={habit.description.childMarkdownRemark.excerpt}
         />
-        <header className="header">
-          {/* <hgroup>
-            <Icon svg={habit.icon.svg} title={habit.icon.title} size="large" />
-            <h1 className="title">{habit.name}</h1>
-          </hgroup> */}
+        <section className="habit-card">
+          <h2>Description</h2>
           <div
             className="description"
             dangerouslySetInnerHTML={{
               __html: habit.description.childMarkdownRemark.html,
             }}
           />
-        </header>
-        {/* <div
-          className="steps"
-          dangerouslySetInnerHTML={{
-            __html: habit.steps.childMarkdownRemark.html,
-          }}
-        /> */}
-        {/* <div
-          className="benefits"
-          dangerouslySetInnerHTML={{
-            __html: habit.benefits.childMarkdownRemark.html,
-          }}
-        /> */}
-        <div
-          className="body"
-          dangerouslySetInnerHTML={{
-            __html: habit.body.childMarkdownRemark.html,
-          }}
-        />
-        <Tags tags={habit.tags} />
+        </section>
+        <section className="habit-card">
+          <h2>Steps</h2>
+          <div
+            className="steps list"
+            dangerouslySetInnerHTML={{
+              __html: habit.steps.childMarkdownRemark.html,
+            }}
+          />
+        </section>
+        <section className="habit-card">
+          <h2>Links</h2>
+          <div
+            className="body list"
+            dangerouslySetInnerHTML={{
+              __html: habit.body.childMarkdownRemark.html,
+            }}
+          />
+        </section>
+
         {(previous || next) && (
           <nav>
             <ul className="articleNavigation">
@@ -90,24 +83,6 @@ export const pageQuery = graphql`
     contentfulHabit(slug: { eq: $slug }) {
       name
       slug
-      icon {
-        title
-        file {
-          contentType
-          fileName
-          url
-        }
-        svg {
-          content
-        }
-        gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
-      }
-      body {
-        childMarkdownRemark {
-          html
-        }
-      }
-      tags
       description {
         childMarkdownRemark {
           html
@@ -118,7 +93,7 @@ export const pageQuery = graphql`
           html
         }
       }
-      benefits {
+      body {
         childMarkdownRemark {
           html
         }

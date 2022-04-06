@@ -1,17 +1,17 @@
-import React from 'react'
-import './hero.scss'
+import React from "react"
+import "./Header.scss"
 
-const Hero = ({ title, description, content }) => {
+const Header = ({ title, description, content }) => {
   // if (!description) {
   //   description = 'test description'
   // }
 
   return (
-    <div className="hero">
+    <header className="header">
       <h1 className="title">{title}</h1>
       {description && <h4 className="description">{description}</h4>}
-    </div>
+    </header>
   )
 }
 
-export default Hero
+export default Header

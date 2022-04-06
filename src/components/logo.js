@@ -1,8 +1,7 @@
-import React from 'react'
-import './logo.scss'
-// TODO: implement a color attribute, implement a width and height attribute
+import React from "react"
+import "./Logo.scss"
 
-const Logo = ({ color }) => (
+const Logo = () => (
   <svg
     className="logo"
     width="50"

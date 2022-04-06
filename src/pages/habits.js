@@ -1,15 +1,14 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import get from 'lodash/get'
+import React from "react"
+import { graphql } from "gatsby"
+import get from "lodash/get"
 
-import Seo from '../components/seo'
-import Layout from '../components/layout'
-import HabitPreview from '../components/habit-preview'
-// import Legend from '../components/legend'
+import Seo from "../components/Seo"
+import Layout from "../components/Layout"
+import HabitCard from "../components/HabitCard"
 
 class HabitsIndex extends React.Component {
   render() {
-    const habits = get(this, 'props.data.allContentfulHabit.nodes')
+    const habits = get(this, "props.data.allContentfulHabit.nodes")
 
     return (
       <Layout
@@ -18,8 +17,11 @@ class HabitsIndex extends React.Component {
         location={this.props.location}
       >
         <Seo title="Habits" />
-        <HabitPreview habits={habits} />
-        {/* <Legend /> */}
+
+        {habits.map((habit) => (
+          // habit.name
+          <HabitCard habit={habit} key={habit.slug} />
+        ))}
       </Layout>
     )
   }
@@ -33,21 +35,6 @@ export const pageQuery = graphql`
       nodes {
         name
         slug
-        tags
-        difficulty
-        duration
-        icon {
-          title
-          file {
-            contentType
-            fileName
-            url
-          }
-          svg {
-            content
-          }
-          gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
-        }
         description {
           childMarkdownRemark {
             excerpt
@@ -56,6 +43,14 @@ export const pageQuery = graphql`
         body {
           childMarkdownRemark {
             html
+          }
+        }
+        category {
+          name
+          icon {
+            svg {
+              content
+            }
           }
         }
       }

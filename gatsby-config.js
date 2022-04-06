@@ -1,4 +1,4 @@
-require('dotenv').config({
+require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
@@ -7,6 +7,7 @@ const contentfulConfig = {
   accessToken:
     process.env.CONTENTFUL_ACCESS_TOKEN ||
     process.env.CONTENTFUL_DELIVERY_TOKEN,
+  enableTags: true,
 }
 
 // If you want to use the preview API please define
@@ -30,46 +31,54 @@ const { spaceId, accessToken } = contentfulConfig
 
 if (!spaceId || !accessToken) {
   throw new Error(
-    'Contentful spaceId and the access token need to be provided.'
+    "Contentful spaceId and the access token need to be provided."
   )
 }
 
 // description: "Habits and routines of successful people",
 module.exports = {
   siteMetadata: {
-    title: 'Mentor Habits',
-    description: 'Ideas, hacks and habits',
+    title: "The Habit Guide",
+    description: "Ideas, hacks and habits",
   },
-  pathPrefix: '/gatsby-contentful-starter',
+  pathPrefix: "/gatsby-contentful-starter",
   plugins: [
-    'gatsby-transformer-remark',
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sharp',
-    'gatsby-plugin-image',
-    'gatsby-plugin-sass',
-    'gatsby-transformer-inline-svg',
+    "gatsby-transformer-remark",
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-react-helmet",
+    "gatsby-plugin-sharp",
+    "gatsby-plugin-image",
+    "gatsby-plugin-sass",
+    "gatsby-transformer-inline-svg",
     {
-      resolve: 'gatsby-source-contentful',
+      resolve: "gatsby-source-contentful",
       options: contentfulConfig,
     },
     {
-      resolve: 'gatsby-plugin-manifest',
+      resolve: "gatsby-plugin-manifest",
       options: {
-        name: 'Mentor Habits',
-        short_name: 'MH',
-        description: 'Ideas, hacks and habits',
-        start_url: '/',
-        background_color: '#f7f0eb',
-        theme_color: '#a2466c',
-        display: 'standalone',
-        icon: 'static/icon.svg',
+        name: "Mentor Habits",
+        short_name: "MH",
+        description: "Ideas, hacks and habits",
+        start_url: "/",
+        background_color: "#f7f0eb",
+        theme_color: "#a2466c",
+        display: "standalone",
+        icon: "static/icon.svg",
         //include_favicon: false,  This will exclude favicon link tag
-        cache_busting_mode: 'none',
+        cache_busting_mode: "none",
       },
     },
     {
-      resolve: 'gatsby-plugin-offline',
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /\.inline\.svg$/,
+        },
+      },
+    },
+    {
+      resolve: "gatsby-plugin-offline",
       options: {
         workboxConfig: {
           // globPatterns: ["**/icon-path*"]

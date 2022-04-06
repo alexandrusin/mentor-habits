@@ -1,0 +1,132 @@
+:root {
+  --nav-height: 60px;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: var(--nav-height);
+
+  z-index: 450;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--navbar-color);
+  // backdrop-filter: blur(6px);
+
+  @media (min-width: 767px) {
+    flex-direction: row;
+    justify-content: unset;
+  }
+
+  @media (max-width: 767px) {
+    .nav-links {
+      display: none;
+    }
+  }
+}
+
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 var(--space-xl);
+}
+
+.mobile-nav {
+  display: flex;
+  flex-direction: row;
+
+  position: absolute;
+  top: var(--nav-height);
+  left: 100vw;
+  right: 0;
+  bottom: 0;
+  z-index: 440;
+
+  width: 100%;
+  overflow: hidden;
+
+  background-color: rgba($color: #000000, $alpha: 0.5);
+
+  &.nav-open {
+    left: 0;
+    .nav-links {
+      width: 80%;
+    }
+    .nav-backdrop {
+      width: 20%;
+    }
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: var(--color-secondary-dark);
+  }
+  .nav-link {
+    width: calc(100% - var(--space-xl));
+    border-bottom: 1px solid var(--border-color);
+    padding: var(--space-lg);
+  }
+}
+
+.nav-links {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+
+  @media (min-width: 767px) {
+    flex-direction: row;
+    height: auto;
+    &.show-links {
+      height: auto;
+    }
+  }
+}
+
+.nav-link {
+  border: 1px solid transparent;
+  margin: 0 8px;
+  padding: 4px 8px;
+  color: var(--color-primary-dark);
+  text-decoration: none;
+  font-size: var(--text-lg);
+
+  font-family: var(--font-monospace);
+  text-transform: uppercase;
+
+  &:hover {
+    color: var(--color-primary);
+  }
+
+  &.active {
+    color: var(--color-white);
+    font-weight: 300;
+  }
+}
+
+.nav-link a:not(.active):hover {
+  color: var(--color-primary);
+}
+
+.nav-logo {
+  display: flex;
+  font-weight: var(--medium);
+  align-items: center;
+  flex-direction: row;
+  flex-shrink: 0;
+  gap: var(--space-md);
+}
+
+.nav-mobile-btn {
+  font-size: 3rem;
+  color: var(--menu-icon-color);
+  cursor: pointer;
+  @media (min-width: 767px) {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+}

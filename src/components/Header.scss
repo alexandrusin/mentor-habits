@@ -1,0 +1,35 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: var(--space-md);
+  border-bottom: 1px solid var(--border-color);
+
+  .title {
+    letter-spacing: -2px;
+    font-size: var(--text-4xl);
+    font-weight: var(--bold);
+    line-height: var(--solid);
+    margin: 0;
+    z-index: 1;
+
+    // text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: -3px;
+  }
+  .description {
+    font-size: var(--text-xl);
+    font-weight: 400;
+    margin: var(--space-md) 0 0 0;
+    z-index: 1;
+  }
+
+  @media (min-width: 480px) {
+  }
+
+  @media (min-width: 768px) {
+  }
+
+  @media (min-width: 1024px) {
+  }
+}

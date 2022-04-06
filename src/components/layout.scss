@@ -1,23 +1,66 @@
-.page {
-  // display: flex;
-  // flex-direction: column;
-  max-width: var(--size-max-width);
-  margin: 0 auto;
-  // padding: var(--space-2xl) var(--size-gutter);
-  padding: var(--size-gutter);
+body {
+  // background: url(../../public/blueprint-pattern.png);
+}
 
-  header {
-    display: flex;
-    flex-direction: column;
+.page-wrapper {
+  padding: var(--space-md);
+  // background-color: var(--color-white);
 
-    hgroup {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+  // @media (min-width: 768px) {
+  //   padding: var(--space-md);
+  // }
+}
 
-    h1 {
-      margin: 0;
-    }
+.content-section {
+  max-width: 840px;
+}
+
+.section-item {
+  padding-right: 40px;
+  padding-left: 40px;
+}
+
+.homepage {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  // gap: var(--space-3xl);
+
+  // .filters {
+  //   display: flex;
+  //   flex-direction: column;
+  //   gap: var(--space-xs);
+  // }
+}
+
+.hero-intro-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+
+  background: var(--color-secondary-light);
+  padding: var(--space-3xl) var(--space-md);
+  border-radius: 12px;
+  // font-family: var(--font-monospace);
+  // text-transform: uppercase;
+  h2 {
+    font-size: 30px;
+    color: var(--color-white);
+  }
+  text-align: center;
+}
+
+.category-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-xl);
+  .category {
+    font-family: var(--font-monospace);
+    font-size: var(--text-xl);
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1;
+    color: var(--color-primary);
   }
 }

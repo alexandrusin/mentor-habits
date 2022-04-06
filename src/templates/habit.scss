@@ -1,12 +1,9 @@
 .habit {
-  .steps {
-    display: grid;
-    grid-template-columns: 150px auto;
+  section {
+    margin-bottom: var(--space-sm);
   }
-
-  .benefits {
-    background: var(--black-fade-5);
-    padding: var(--space-md);
+  .list {
+    margin-bottom: var(--space-md);
   }
 
   .meta {
@@ -31,7 +28,7 @@
   }
 
   .body {
-    max-width: 48rem;
+    // max-width: 48rem;
   }
 
   .article h2:first-of-type {
@@ -45,7 +42,7 @@
 
   .article a:hover {
     border-bottom-color: transparent;
-    color: var(--primary);
+    color: var(--color-primary);
   }
 
   .article p {

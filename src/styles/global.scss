@@ -1,44 +1,35 @@
 @font-face {
-  font-family: 'Inter var';
+  font-family: "Inter var";
   font-weight: 100 900;
   font-display: swap;
   font-style: normal;
-  font-named-instance: 'Regular';
-  src: url('/fonts/Inter-roman.var.woff2?v=3.19') format('woff2');
+  font-named-instance: "Regular";
+  src: url("/fonts/Inter-roman.var.woff2?v=3.19") format("woff2");
 }
 
 @font-face {
-  font-family: 'Inter var';
+  font-family: "Inter var";
   font-weight: 100 900;
   font-display: swap;
   font-style: italic;
-  font-named-instance: 'Italic';
-  src: url('/fonts/Inter-italic.var.woff2?v=3.19') format('woff2');
+  font-named-instance: "Italic";
+  src: url("/fonts/Inter-italic.var.woff2?v=3.19") format("woff2");
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-html * {
-  box-sizing: border-box;
-}
-
 body {
-  background: var(--background);
   color: var(--text-color);
   font-family: var(--font-sans);
   font-size: 16px;
   font-weight: var(--body);
   line-height: var(--default);
-  margin: 0;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-}
 
-img {
-  display: block;
-  width: 100%;
+  background: var(--background-color);
 }
 
 h1,
@@ -49,25 +40,24 @@ h5,
 h6 {
   font-weight: var(--semibold);
   line-height: var(--dense);
+  color: var(--color-secondary-light);
 }
 
 a {
   color: currentColor;
   text-decoration: none;
-}
-
-a:hover {
-  color: var(--primary);
-}
-
-a.active {
-  font-weight: var(--bold);
+  &:hover {
+    //
+  }
+  &.active {
+    font-weight: var(--bold);
+  }
 }
 
 tt,
 code,
 kbd {
-  background: var(--black-fade-5);
+  background: var(--color-primary-dark);
   padding-bottom: 0.2em;
   padding-top: 0.2em;
 }
@@ -81,7 +71,7 @@ kbd {
 
 tt,
 code {
-  background-color: var(--black-fade-5);
+  background-color: var(--color-primary-dark);
   border-radius: var(--radius-sm);
   font-weight: var(--medium);
   padding: 0.2em 0;
@@ -91,7 +81,7 @@ code:before,
 code:after,
 tt:before,
 tt:after {
-  content: ' ';
+  content: " ";
   letter-spacing: -0.2em;
 }
 

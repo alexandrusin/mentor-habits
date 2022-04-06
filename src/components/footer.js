@@ -1,24 +1,22 @@
-import React from 'react'
-
-import Container from './container'
-import './footer.scss'
+import React from "react"
+import "./Footer.scss"
 
 const Footer = () => (
-  <Container as="footer">
-    <div className="container">
-      <div className="left">
-        <span>
-          Get 1 percent better each day for one year, you’ll end up thirty-seven
-          times better.
-          {/* https://sive.rs/book/AtomicHabits */}
-        </span>
-      </div>
-      <div className="right">
-        Built with <a href="https://contentful.com/">Contentful</a> and{' '}
-        <a href="https://gatsbyjs.com">Gatsby</a>
-      </div>
+  <footer className="footer">
+    <div>
+      Get 1 percent better each day for one year,
+      <br />
+      you’ll end up thirty-seven times better.
+      {/* https://sive.rs/book/AtomicHabits */}
+      <br />
+      <br />
     </div>
-  </Container>
+    <div>
+      Built with <a href="https://contentful.com/">Contentful</a> and{" "}
+      <a href="https://gatsbyjs.com">Gatsby</a>
+    </div>
+    <div>Copyright &copy; {new Date().getFullYear()} DV</div>
+  </footer>
 )
 
 export default Footer

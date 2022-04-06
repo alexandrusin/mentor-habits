@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './legend.scss'
+import './Legend.scss'
 
 const DIFFICULT = getComputedStyle(document.documentElement).getPropertyValue(
   '--difficulty-1'
