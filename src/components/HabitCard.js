@@ -40,17 +40,20 @@ const HabitCard = ({ habit }) => {
   return (
     <div className="card habit-card">
       {habitCategoryIcon()}
-      <div className="content">
+      <div className="header">
         <Link key={habit.slug} to={`/habits/${habit.slug}`} className="link">
           <h2 className="title">{habit.name}</h2>
         </Link>
+        <div className="tags">{habitCategory()}</div>
+      </div>
+
+      <div className="content">
         <div
           className="description"
           dangerouslySetInnerHTML={{
             __html: habit.description.childMarkdownRemark.html,
           }}
         />
-        <div className="tags">{habitCategory()}</div>
       </div>
     </div>
   )
