@@ -17,11 +17,11 @@ class HabitsIndex extends React.Component {
         location={this.props.location}
       >
         <Seo title="Habits" />
-
-        {habits.map((habit) => (
-          // habit.name
-          <HabitCard habit={habit} key={habit.slug} />
-        ))}
+        <div className="habits-content">
+          {habits.map((habit) => (
+            <HabitCard habit={habit} key={habit.slug} />
+          ))}
+        </div>
       </Layout>
     )
   }
@@ -31,10 +31,11 @@ export default HabitsIndex
 
 export const pageQuery = graphql`
   query HabitIndexQuery {
-    allContentfulHabit(sort: { fields: [name], order: DESC }) {
+    allContentfulHabit(sort: { fields: [name], order: ASC }) {
       nodes {
         name
         slug
+        difficulty
         description {
           childMarkdownRemark {
             excerpt
@@ -47,6 +48,7 @@ export const pageQuery = graphql`
         }
         category {
           name
+          slug
           icon {
             svg {
               content

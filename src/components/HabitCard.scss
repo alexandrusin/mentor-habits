@@ -16,7 +16,7 @@
   padding: var(--space-lg) var(--space-xl);
   background: var(--color-white);
   box-shadow: var(--shadow-primary);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
 
   .header {
     display: flex;
@@ -54,11 +54,14 @@
     background: var(--color-primary-light);
     padding: var(--space-2xs) var(--space-xs);
     border-radius: var(--radius-sm);
+    &:hover {
+      background: var(--color-primary);
+    }
   }
 
   @media (min-width: 768px) {
     display: grid;
-    grid-template-columns: 50px 1fr 2fr;
+    grid-template-columns: 40px 1fr 2fr;
     align-items: center;
   }
 }

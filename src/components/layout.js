@@ -15,9 +15,11 @@ const Layout = ({ children, title, description, page }) => {
     <>
       <Seo />
       <Navbar />
-      <Header title={title} description={description} />
       <div className={"page-wrapper " + (page ? page : "default")}>
-        {children}
+        <main className="main-wrapper">
+          <Header title={title} description={description} />
+          {children}
+        </main>
       </div>
       <Footer />
     </>

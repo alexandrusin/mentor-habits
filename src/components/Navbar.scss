@@ -13,6 +13,9 @@
   background: var(--navbar-color);
   // backdrop-filter: blur(6px);
 
+  // max-width: var(--size-max-width);
+  // margin: 0 auto;
+
   @media (min-width: 767px) {
     flex-direction: row;
     justify-content: unset;

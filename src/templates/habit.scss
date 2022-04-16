@@ -6,6 +6,13 @@
     margin-bottom: var(--space-md);
   }
 
+  .card {
+    padding: var(--space-lg) var(--space-xl);
+    background: var(--color-white);
+    box-shadow: var(--shadow-primary);
+    border-radius: var(--radius-sm);
+  }
+
   .meta {
     font-family: var(--font-serif);
     font-size: var(--text-lg);
@@ -64,14 +71,6 @@
 
   .article li {
     margin-bottom: 0.5em;
-  }
-
-  .articleNavigation {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    list-style: none;
-    padding: 0;
   }
 
   @media (min-width: 768px) {

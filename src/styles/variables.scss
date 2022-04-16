@@ -21,6 +21,8 @@
 
   /* radii */
   --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
 
   /* spacing */
   --space-3xs: 2px;
@@ -72,24 +74,28 @@
   /* size */
   --size-gutter: var(--space-2xl);
   --size-logo: var(--space-2xl);
-  --size-max-width: 80rem;
+  --size-max-width: 1000px;
 
   /* COLORS */
   --color-white: #fff;
   --color-black: #000;
 
-  --difficulty-1: #acdfe8;
-  --difficulty-2: #c9e08e;
-  --difficulty-3: #a5d177;
-  --difficulty-4: #fcb135;
+  // --difficulty-1: #acdfe8;
+  // --difficulty-2: #c9e08e;
+  // --difficulty-3: #a5d177;
+  // --difficulty-4: #fcb135;
+  // --difficulty-5: #f2673d;
+
+  --difficulty-3: #f9c5b6;
+  --difficulty-4: #ff916f;
   --difficulty-5: #f2673d;
 
   --color-primary-dark: #577cac;
-  --color-primary: #94bdf2;
+  --color-primary: #c9e0f4;
   --color-primary-light: #d9e8f5;
 
   --color-secondary-dark: #021842;
-  --color-secondary: #162753;
+  --color-secondary: #123368;
   --color-secondary-light: #183c74;
 
   --color-tertiary-dark: #2a1f45;
@@ -98,7 +104,7 @@
   --color-accent-1: #f26101;
   --color-accent-2: #b37fe6;
 
-  --color-neutral-light: #efefef;
+  --color-neutral-light: #f5f5f5;
   --color-neutral: #eeeeee;
   --color-neutral-dark: #666;
   --color-neutral-darkest: #333;
@@ -115,16 +121,15 @@
   );
 
   /* UI  ---------------------------  */
-  --background-color: var(--color-neutral);
+  --background-color: var(--color-neutral-light);
   /* general */
   --text-color: var(--color-black);
   // --link-color: var(--color-primary-dark);
   --border-color: hsl(0 0% 50% / 0.15);
 
   /* navbar */
-  --logo-color: var(--color-secondary-light);
-  --color-navbar: var(--color-secondary);
+  --logo-color: var(--color-white);
 
   --menu-icon-color: var(--color-secondary-light);
-  --navbar-color: var(--background-color);
+  --navbar-color: var(--color-secondary);
 }

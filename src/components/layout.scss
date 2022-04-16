@@ -1,9 +1,26 @@
 .page-wrapper {
   padding: var(--space-md);
-  // @media (min-width: 768px) {
-  //   max-width: 1080px;
-  //   margin: 0 auto;
-  // }
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    // max-width: var(--size-max-width);
+    margin: 0 auto;
+  }
+}
+
+.main-wrapper {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 840px;
+}
+
+.sidebar {
+  min-width: 200px;
+  padding: var(--space-md);
 }
 
 .content-section {
@@ -15,39 +32,54 @@
   padding-left: 40px;
 }
 
-.homepage {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xs);
-}
-
 .hero-intro-wrapper {
   display: flex;
   flex-direction: column;
   gap: var(--space-xl);
 
-  background: var(--color-secondary);
+  background: var(--color-white);
   padding: var(--space-3xl) var(--space-md);
   border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-primary);
   text-align: center;
 
   h2 {
     font-size: 30px;
-    color: var(--color-white);
   }
 }
 
-.category-wrapper {
+.habits-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  // @media (min-width: 768px) {
+  //   flex-direction: row;
+  // }
+
+  // .sidebar {
+  //   display: flex;
+  //   flex-direction: column;
+  //   gap: var(--space-md);
+  //   padding: var(--space-lg) var(--space-xl);
+  //   background: var(--color-white);
+  //   box-shadow: var(--shadow-primary);
+  //   border-radius: var(--radius-sm);
+
+  //   @media (min-width: 768px) {
+  //     width: 400px;
+  //   }
+  // }
+}
+
+.bottom-page-navigation {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--space-xl);
-  .category {
-    font-family: var(--font-monospace);
-    font-size: var(--text-xl);
-    font-weight: bold;
-    text-transform: uppercase;
-    line-height: 1;
-    color: var(--color-primary);
-  }
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+
+  background: var(--color-white);
+  padding: var(--space-md);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-primary);
 }

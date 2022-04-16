@@ -1,14 +1,14 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 import get from "lodash/get"
 
+import Seo from "../components/Seo"
 import Layout from "../components/Layout"
 import HabitCard from "../components/HabitCard"
 
 class RootIndex extends React.Component {
   render() {
     const habits = get(this, "props.data.allContentfulHabit.nodes")
-    const categories = get(this, "props.data.allContentfulCategory.nodes")
 
     return (
       <Layout
@@ -17,16 +17,8 @@ class RootIndex extends React.Component {
         location={this.props.location}
         page="homepage"
       >
-        <div className="hero-intro-wrapper card">
-          <h2>What would you like to improve?</h2>
-          <div className="category-wrapper">
-            {categories.map((category) => (
-              <span className="category">{category.name}</span>
-            ))}
-          </div>
-        </div>
-
-        <div className="habit-cards-wrapper">
+        <Seo title="Habits" />
+        <div className="habits-content">
           {habits.map((habit) => (
             <HabitCard habit={habit} key={habit.slug} />
           ))}
@@ -38,12 +30,14 @@ class RootIndex extends React.Component {
 
 export default RootIndex
 
+// filter: { category: { elemMatch: { name: { in: "Mental Health" } } } }
 export const pageQuery = graphql`
   query HomeQuery {
-    allContentfulHabit(sort: { fields: [name], order: DESC }) {
+    allContentfulHabit(sort: { fields: [name], order: ASC }) {
       nodes {
         name
         slug
+        difficulty
         description {
           childMarkdownRemark {
             html
@@ -51,17 +45,13 @@ export const pageQuery = graphql`
         }
         category {
           name
+          slug
           icon {
             svg {
               content
             }
           }
         }
-      }
-    }
-    allContentfulCategory(sort: { fields: [name], order: DESC }) {
-      nodes {
-        name
       }
     }
   }

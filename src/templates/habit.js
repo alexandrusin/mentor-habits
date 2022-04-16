@@ -10,6 +10,7 @@ import "./habit.scss"
 class HabitTemplate extends React.Component {
   render() {
     const habit = get(this.props, "data.contentfulHabit")
+    const categories = get(this.props, "data.contentfulCategory")
     const previous = get(this.props, "data.previous")
     const next = get(this.props, "data.next")
 
@@ -19,7 +20,7 @@ class HabitTemplate extends React.Component {
           title={habit.name}
           description={habit.description.childMarkdownRemark.excerpt}
         />
-        <section className="habit-card">
+        <section className="card">
           <h2>Description</h2>
           <div
             className="description"
@@ -28,7 +29,7 @@ class HabitTemplate extends React.Component {
             }}
           />
         </section>
-        <section className="habit-card">
+        <section className="card">
           <h2>Steps</h2>
           <div
             className="steps list"
@@ -37,7 +38,7 @@ class HabitTemplate extends React.Component {
             }}
           />
         </section>
-        <section className="habit-card">
+        <section className="card">
           <h2>Links</h2>
           <div
             className="body list"
@@ -49,7 +50,7 @@ class HabitTemplate extends React.Component {
 
         {(previous || next) && (
           <nav>
-            <ul className="articleNavigation">
+            <ul className="bottom-page-navigation">
               {previous && (
                 <li>
                   <Link to={`/habits/${previous.slug}`} rel="prev">
@@ -98,6 +99,10 @@ export const pageQuery = graphql`
           html
         }
       }
+    }
+    contentfulCategory(slug: { eq: $slug }) {
+      name
+      slug
     }
     previous: contentfulHabit(slug: { eq: $previousPostSlug }) {
       slug

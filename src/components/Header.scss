@@ -3,24 +3,23 @@ header.header {
   flex-direction: column;
   position: relative;
   padding: var(--space-md);
-  border-bottom: 1px solid var(--border-color);
+  margin: 0 auto;
+  max-width: var(--size-max-width);
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
 
   .title {
-    letter-spacing: -2px;
-    font-size: var(--text-4xl);
+    font-size: var(--text-3xl);
     font-weight: var(--bold);
     line-height: var(--solid);
     margin: 0;
     z-index: 1;
-
-    // text-transform: uppercase;
     font-weight: 700;
-    letter-spacing: -3px;
+    letter-spacing: -2px;
   }
   .description {
     font-size: var(--text-xl);
     font-weight: 400;
-    margin: var(--space-md) 0 0 0;
     z-index: 1;
   }
 

@@ -7,18 +7,26 @@ import "./HabitCard.scss"
 const HabitCard = ({ habit }) => {
   if (!habit) return null
 
-  // const habitIcon = habit.category.[0].icon.svg.content
+  console.log("component/HabitCard ", habit)
 
-  console.log("my habits", habit)
+  // associate difficulty with a color
+  const habitDifficulty = {
+    Easy: "difficulty-3",
+    Medium: "difficulty-4",
+    Hard: "difficulty-5",
+  }
 
   const habitCategoryIcon = () => {
+    let iconColor = habitDifficulty["medium"]
+    if (habit.difficulty) {
+      iconColor = habitDifficulty[habit.difficulty]
+    }
+
+    iconColor = "color-accent-1"
+
     if (habit.category) {
       return (
-        <Icon
-          svg={habit.category[0].icon.svg}
-          size={30}
-          color="color-accent-1"
-        />
+        <Icon svg={habit.category[0].icon.svg} size={30} color={iconColor} />
       )
     }
     return
@@ -28,9 +36,13 @@ const HabitCard = ({ habit }) => {
     if (habit.category) {
       return habit.category.map((category) => {
         return (
-          <div className="tag" key={category.name}>
+          <Link
+            to={`/category/${category.slug}`}
+            key={category.slug}
+            className="tag"
+          >
             {category.name}
-          </div>
+          </Link>
         )
       })
     }

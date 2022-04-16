@@ -1,20 +1,13 @@
 import React, { useState } from "react"
-import { Link } from "gatsby"
+import { Link, graphql, useStaticQuery } from "gatsby"
 
 import Logo from "./Logo"
 import ThemeToggle from "./ThemeToggle"
+import CategoryList from "./CategoryList"
 
 import "./Navbar.scss"
 import { MdMenu } from "react-icons/md"
 import { MdMenuOpen } from "react-icons/md"
-
-// import { MdBrightnessHigh } from "react-icons/md"
-// import { MdBrightnessLow } from "react-icons/md"
-// import { MdBrightness7 } from "react-icons/md"
-// import { MdBrightnessHigh } from "react-icons/md"
-// MdBrightness4
-// MdBrightness5
-// MdBrightness7
 
 const Navbar = () => {
   const [show, setShow] = useState(false)
@@ -26,9 +19,19 @@ const Navbar = () => {
           to="/habits/"
           className="nav-link"
           activeClassName="active"
+          partiallyActive={true}
           onClick={() => setShow(false)}
         >
           Habits
+        </Link>
+        <Link
+          to="/categories/"
+          className="nav-link"
+          activeClassName="active"
+          partiallyActive={true}
+          onClick={() => setShow(false)}
+        >
+          Categories
         </Link>
       </>
     )
@@ -42,7 +45,10 @@ const Navbar = () => {
           onClick={() => setShow(!show)}
           role="close-menu"
         ></div>
-        <div className="nav-links">{/* <NavLinks /> */}</div>
+        <div className="nav-links">
+          <NavLinks />
+          <CategoryList counter={true} className="nav-links" />
+        </div>
       </div>
     )
   }
@@ -73,8 +79,11 @@ const Navbar = () => {
           <MobileNavBtn />
         </div>
 
-        <div className="nav-links">{/* <NavLinks /> */}</div>
+        <div className="nav-links">{<NavLinks />}</div>
         {show && <MobileNav />}
+      </nav>
+      <nav>
+        <CategoryList counter={true} className="nav-category-list" />
       </nav>
     </>
   )

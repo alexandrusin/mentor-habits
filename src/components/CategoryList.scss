@@ -1,0 +1,103 @@
+.category-list {
+  display: flex;
+  flex-wrap: wrap;
+  background: var(--color-neutral);
+
+  .category {
+    display: inline-flex;
+    gap: var(--space-xs);
+    align-items: center;
+
+    .name {
+      font-family: var(--font-monospace);
+      font-size: var(--text-sm);
+      color: var(--color-primary-dark);
+      text-transform: uppercase;
+      font-weight: bold;
+      // letter-spacing: -1px;
+      // flex: 1;
+    }
+    .counter {
+      color: var(--color-primary-dark);
+      font-weight: bold;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      // font-family: var(--font-monospace);
+      font-size: var(--text-xs);
+
+      background: var(--color-white);
+      // border: 1px solid var(--color-primary-dark);
+      border-radius: var(--radius-sm);
+      // box-shadow: var(--shadow-primary);
+      width: 20px;
+      height: 20px;
+    }
+
+    &.empty {
+      // opacity: 0.5;
+      .name,
+      .counter {
+        // color: var(--color-neutral-dark);
+      }
+    }
+
+    &:hover {
+      .name {
+        color: var(--color-secondary);
+      }
+      .counter {
+        color: var(--color-secondary);
+      }
+    }
+
+    padding: var(--space-2xs) var(--space-xs);
+    border-radius: var(--radius-sm);
+  }
+}
+
+// Specific category list styles
+
+.sidebar-category-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  // gap: var(--space-2xs);
+  // .name {
+  //   flex: 1;
+  // }
+}
+
+.hero-category-list {
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2xl);
+  margin: 0 auto;
+}
+
+.nav-category-list {
+  gap: var(--space-xs);
+  padding: var(--space-sm) var(--space-md);
+  flex-wrap: wrap;
+  .category {
+    background: var(--color-white);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-primary);
+    .counter {
+      background: var(--color-neutral);
+    }
+
+    &.active {
+      background: var(--color-secondary-light);
+      box-shadow: none;
+
+      .name {
+        color: var(--color-white);
+      }
+      .counter {
+        color: var(--color-secondary);
+      }
+    }
+  }
+}
